@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const NavBar = () => {
   return (
-    <nav className="w-full bg-blue-900 py-6 mb-10">
+    <nav className="w-full bg-blue-900 py-6 mb-10 shadow-md">
       <div className="max-w-3xl mx-auto flex justify-between items-center px-6">
         <Link href="/" className="text-white font-bold text-xl">
           Media Library
