@@ -1,6 +1,7 @@
-"use client";
-import { useParams } from "next/navigation";
-import { useEffect, useState } from "react";
+'use client';
+import { useParams } from 'next/navigation';
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 
 const GamePage = () => {
   const { id } = useParams();
@@ -14,12 +15,12 @@ const GamePage = () => {
       try {
         const response = await fetch(`http://localhost:8080/games/${id}`);
         if (!response.ok) {
-          throw new Error("Failed to fetch game data");
+          throw new Error('Failed to fetch game data');
         }
         const gameData = await response.json();
         setGame(gameData);
       } catch (error) {
-        console.error("Error fetching game:", error);
+        console.error('Error fetching game:', error);
       } finally {
         setLoading(false);
       }
@@ -32,7 +33,7 @@ const GamePage = () => {
 
   if (!game && !loading) {
     return (
-      <h1 className="text-center text-2xl font-bold mt-10">Game Not Found</h1>
+      <h1 className='text-center text-2xl font-bold mt-10'>Game Not Found</h1>
     );
   }
 
@@ -40,18 +41,22 @@ const GamePage = () => {
     return <div>Loading...</div>;
   }
 
+  console.log(game);
+
   return (
-    <div>
-      <h1>{game.title}</h1>
-      <p>Genre: {game.genre}</p>
-      <p>Platform: {game.platform}</p>
-      <p>Year Published: {game.yearPublished}</p>
-      <p>Physical/Digital: {game.physicalDigital}</p>
-      <p>Publisher: {game.publisher}</p>
-      <p>Developer: {game.developer}</p>
-      <p>Completed: {game.completed ? "Yes" : "No"}</p>
-      <p>Rating: {game.rating}</p>
-    </div>
+    <>
+      <div>
+        <h1>{game.title}</h1>
+        <p>Genre: {game.genre}</p>
+        <p>Platform: {game.platform}</p>
+        <p>Year Published: {game.yearPublished}</p>
+        <p>Physical/Digital: {game.physicalDigital}</p>
+        <p>Publisher: {game.publisher}</p>
+        <p>Developer: {game.developer}</p>
+        <p>Completed: {game.completed ? 'Yes' : 'No'}</p>
+        <p>Rating: {game.rating}</p>
+      </div>
+    </>
   );
 };
 
