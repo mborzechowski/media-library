@@ -40,15 +40,26 @@ const Library = () => {
   return (
     <div>
       <h1 className='text-center text-xl m-4'>Game List</h1>
-      <div className='flex flex-col  items-center py-8 space-y-10'>
-        <div className='grid grid-cols-10 gap-8 px-10 '>
+      <div className='flex flex-col py-8 space-y-10'>
+        <div className='w-full max-w-screen-xl grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-10 gap-4 px-4 md:px-10'>
           {games.map((game) => (
             <div
               key={game.id}
-              className='m-2  border border-gray-300 rounded w-24 h-20'
+              className='m-2 border border-gray-300 rounded w-24 h-24 flex items-center justify-center overflow-hidden'
             >
               {game.images ? (
-                <Image src={game.images[0]} alt='' width={220} height={260} />
+                <Link
+                  href={`/video-games/${game.id}`}
+                  className='w-24 h-24 flex items-center justify-center overflow-hidden'
+                >
+                  <Image
+                    src={game.images[0]}
+                    alt=''
+                    width={80}
+                    height={80}
+                    className='object-cover w-full h-full '
+                  />
+                </Link>
               ) : (
                 <Link href={`/video-games/${game.id}`}>{game.title}</Link>
               )}
