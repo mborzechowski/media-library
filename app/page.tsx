@@ -1,7 +1,5 @@
-import MainDashboard from "@/components/MainDashboard";
-
 const Home = () => {
-  return <MainDashboard />;
+  return;
 };
 
 export default Home;
