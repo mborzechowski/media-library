@@ -1,12 +1,11 @@
 'use client';
 import GameForm from '@/components/GameForm';
+import { useRouter } from 'next/navigation';
 
 const AddNewGame = () => {
-  const addGame = async (formData) => {
-    for (let [key, value] of formData.entries()) {
-      console.log(`${key}: ${value}`);
-    }
+  const router = useRouter();
 
+  const addGame = async (formData) => {
     const response = await fetch('http://localhost:8080/games', {
       method: 'POST',
       body: formData,
@@ -18,7 +17,7 @@ const AddNewGame = () => {
     }
 
     const game = await response.json();
-    console.log('Game added:', game);
+    router.push('/video-games');
   };
 
   return (
