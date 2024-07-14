@@ -22,12 +22,12 @@ const MainDashboard = () => {
   };
 
   const buttons = [
-    { icon: faBook, label: 'Books', href: '/books' },
-    { icon: faGamepad, label: 'Games', href: '/video-games' },
-    { icon: faDiceFive, label: 'Boardgames', href: '/boardgames' },
-    { icon: faClapperboard, label: 'Movies', href: '/movies' },
-    { icon: faHeadphones, label: 'Audiobooks', href: '/audiobooks' },
-    { icon: faCommentDots, label: 'Comics', href: '/comics' },
+    { icon: faBook, label: 'BOOKS', href: '/books' },
+    { icon: faGamepad, label: 'GAMES', href: '/video-games' },
+    { icon: faDiceFive, label: 'BOARDGAMES', href: '/boardgames' },
+    { icon: faClapperboard, label: 'MOVIES', href: '/movies' },
+    { icon: faHeadphones, label: 'AUDIOBOOKS', href: '/audiobooks' },
+    { icon: faCommentDots, label: 'COMICS', href: '/comics' },
   ];
 
   return (

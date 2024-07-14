@@ -6,7 +6,10 @@ import MainDashboard from './MainDashboard';
 const NavBar = () => {
   return (
     <nav className='w-72 h-auto ml-24 bg-blue-900 py-10 shadow-md flex flex-col items-center'>
-      <Link href='/' className='text-white font-bold text-2xl mb-10'>
+      <Link
+        href='/'
+        className='text-white font-bold text-5xl mb-10 bebas-neue-regular'
+      >
         Media Library
       </Link>
       <MainDashboard />

@@ -21,8 +21,10 @@ const AddNewGame = () => {
   };
 
   return (
-    <div>
-      <h1 className='text-center text-xl m-4'>Add a new game</h1>
+    <div className='mt-24'>
+      <h1 className='text-center text-xl m-4 bebas-neue-regular '>
+        Add a new game
+      </h1>
       <GameForm onSubmit={addGame} />
     </div>
   );

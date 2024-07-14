@@ -1,7 +1,7 @@
 'use client';
 import { useForm } from 'react-hook-form';
 
-const GameForm = ({ onSubmit }) => {
+const BookForm = ({ onsubmit }) => {
   const {
     register,
     handleSubmit,
@@ -11,19 +11,17 @@ const GameForm = ({ onSubmit }) => {
   const onSubmitHandler = (data) => {
     const formData = new FormData();
     formData.append('title', data.title);
+    formData.append('author', data.author);
     formData.append('genre', data.genre);
-    formData.append('platform', data.platform);
     formData.append('yearPublished', data.yearPublished);
     formData.append('physicalDigital', data.physicalDigital);
     formData.append('publisher', data.publisher);
-    formData.append('developer', data.developer);
     formData.append('completed', data.completed ? 'true' : 'false');
     formData.append('rating', data.rating);
     formData.append('image', data.image[0]);
 
     onSubmit(formData);
   };
-
   return (
     <form
       className='max-w-xl mx-auto mt-4 p-4 border rounded shadow-lg'
@@ -50,6 +48,20 @@ const GameForm = ({ onSubmit }) => {
       <div className='mb-4'>
         <label
           className='block text-gray-700 text-sm font-bold mb-2'
+          htmlFor='author'
+        >
+          Author
+        </label>
+        <input
+          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
+          type='text'
+          id='author'
+          {...register('genre', { required: true })}
+        />
+      </div>
+      <div className='mb-4'>
+        <label
+          className='block text-gray-700 text-sm font-bold mb-2'
           htmlFor='genre'
         >
           Genre
@@ -67,38 +79,6 @@ const GameForm = ({ onSubmit }) => {
       <div className='mb-4'>
         <label
           className='block text-gray-700 text-sm font-bold mb-2'
-          htmlFor='theme'
-        >
-          Theme
-        </label>
-        <input
-          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-          type='text'
-          id='theme'
-          {...register('genre', { required: false })}
-        />
-      </div>
-      <div className='mb-4'>
-        <label
-          className='block text-gray-700 text-sm font-bold mb-2'
-          htmlFor='platform'
-        >
-          Platform
-        </label>
-        <input
-          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-          type='text'
-          id='platform'
-          {...register('platform', { required: true })}
-        />
-        {errors.platform && (
-          <p className='text-red-500 text-xs italic'>Platform is required</p>
-        )}
-      </div>
-
-      <div className='mb-4'>
-        <label
-          className='block text-gray-700 text-sm font-bold mb-2'
           htmlFor='publisher'
         >
           Publisher
@@ -111,23 +91,6 @@ const GameForm = ({ onSubmit }) => {
         />
         {errors.publisher && (
           <p className='text-red-500 text-xs italic'>Publisher is required</p>
-        )}
-      </div>
-      <div className='mb-4'>
-        <label
-          className='block text-gray-700 text-sm font-bold mb-2'
-          htmlFor='developer'
-        >
-          Developer
-        </label>
-        <input
-          className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
-          type='text'
-          id='developer'
-          {...register('developer', { required: true })}
-        />
-        {errors.developer && (
-          <p className='text-red-500 text-xs italic'>Developer is required</p>
         )}
       </div>
       <div className='flex gap-4'>
@@ -144,13 +107,13 @@ const GameForm = ({ onSubmit }) => {
             id='yearPublished'
             {...register('yearPublished', {
               required: true,
-              min: 1900,
+              min: 1800,
               max: new Date().getFullYear(),
             })}
           />
           {errors.yearPublished && (
             <p className='text-red-500 text-xs italic'>
-              Year Published must be between 1900 and {new Date().getFullYear()}
+              Year Published must be between 1800 and {new Date().getFullYear()}
             </p>
           )}
         </div>
@@ -200,7 +163,7 @@ const GameForm = ({ onSubmit }) => {
             className='block text-gray-700 text-sm font-bold mb-2'
             htmlFor='completed'
           >
-            Completed
+            Finished
           </label>
           <input
             className='ml-6 leading-tight mt-2'
@@ -232,10 +195,10 @@ const GameForm = ({ onSubmit }) => {
         className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline '
         type='submit'
       >
-        Add Game
+        Add Book
       </button>
     </form>
   );
 };
 
-export default GameForm;
+export default BookForm;
