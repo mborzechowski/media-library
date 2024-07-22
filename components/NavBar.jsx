@@ -48,6 +48,7 @@ const NavBar = () => {
                     src={profileImage}
                     width={40}
                     height={40}
+                    alt='profile picture'
                   />
                 ) : (
                   <FontAwesomeIcon icon={faUser} />
